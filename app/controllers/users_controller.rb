@@ -8,13 +8,46 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(id: " ", name: " ", email: " ", username: " ", password: " ")
+    @user = User.new(user_params)
 
     if @user.save
-      redirect_to @user, notice: "User created successfully"
+      redirect_to users_path, notice: "User created successfully"
     else 
-      render :new, notice: "Issue in creating user"
+      render :new      
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+
+  def edit
+    @users = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
+  end
+
+
+  def delete
+    @user = User.find(params[:id])
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+
+
+    redirect_to users_path
+  end
+
+
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name,:email,:username, :password)
+  end
 end

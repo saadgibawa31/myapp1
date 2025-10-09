@@ -1,0 +1,5 @@
+<h1>Edit User details</h1>
+
+<% form_with model: @user |u|do %>
+<%=form.text_field :name, placeholder: user.name%>
+<%end%>
