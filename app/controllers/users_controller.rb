@@ -13,7 +13,8 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to users_path, notice: "User created successfully"
     else 
-      render :new      
+      puts @user.errors.full_messages.inspect 
+      render :new, status: :unprocessable_entity      
     end
   end
 
@@ -22,12 +23,15 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @users = User.find(params[:id])
+    @user = User.find(params[:id])
+    render :edit
   end
 
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
+
+    redirect_to users_path
   end
 
 

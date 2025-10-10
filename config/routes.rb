@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # get "users/index"
-
+  root "users#index"
   # with "resources" we dont need to write get "users/index", "users/new" etc. just writing resources will map all the actions created in the user controller
   resources :users
 
@@ -17,5 +17,5 @@ Rails.application.routes.draw do
 
   # post "/new", redirect_to "users/index"
   # Defines the root path route ("/")
-  # root "users#index"
+  
 end
