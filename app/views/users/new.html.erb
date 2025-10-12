@@ -1,44 +1,4 @@
 <h1> Create New User </h1>
 
-<% if @user.errors.any? %>
-  <div id="error_explanation" style="color: red; border: 1px solid red; padding: 3px; background-color: 
-                                     #f8d7da; border-radius: 4px; margin-bottom: 5px;">
-    <h2 style="font-size: 12px; margin: 0;"><%= pluralize(@user.errors.count, "error") %> 
-      prohibited this user from being saved:</h2>
-    <ul style="padding-left: 10px; margin: 0;">
-      <% @user.errors.full_messages.each do |message| %>
-        <li style="font-size: 12px;"><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= render "form", btn_text: "Create User"%>
 
-<%= form_with(model: @user, local: true) do |form| %>
-    <div>
-        <%= form.label :name%>
-        <%= form.text_field :name%>
-        <% if @user.errors[:name].any? %>
-            <div style="color: red; font-size: 10px;"><%= @user.errors[:name] %></div>
-        <% end %>
-    </div>
-
-    <div>
-        <%= form.label :email%>
-        <%= form.email_field :email%>
-    </div>
-
-    <div>
-        <%= form.label :username %>
-        <%= form.text_field :username%>
-    </div>
-
-    <div>
-        <%= form.label :password%>
-        <%= form.password_field :password %>
-    </div>
-
-    <div>
-        <%= form.submit "Create User"%>
-    </div>
-
-    <% end %>

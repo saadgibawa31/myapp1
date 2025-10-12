@@ -29,9 +29,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-
-    redirect_to users_path
+    if @user.update(user_params)
+      redirect_to users_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
 
@@ -41,10 +43,10 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
-
-
-    redirect_to users_path
+    if @user.destroy 
+      puts "Hello World"
+      redirect_to users_path
+    end
   end
 
 

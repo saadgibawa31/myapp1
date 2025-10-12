@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.2].define(version: 2025_10_08_112406) do
-  create_table "users", force: :cascade do |t|
+  create_table "users", charset: "utf8mb3", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "username"
