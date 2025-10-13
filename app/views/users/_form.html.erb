@@ -1,11 +1,10 @@
 <% if @user.errors.any? %>
-  <div id="error_explanation" style="color: red; border: 1px solid red; padding: 3px; background-color: 
-                                     #f8d7da; border-radius: 4px; margin-bottom: 5px;">
-    <h2 style="font-size: 12px; margin: 0;"><%= pluralize(@user.errors.count, "error") %> 
+  <div id="errors">
+    <h2><%= pluralize(@user.errors.count, "error") %> 
       prohibited this user from being saved:</h2>
-    <ul style="padding-left: 10px; margin: 0;">
+    <ul>
       <% @user.errors.full_messages.each do |message| %>
-        <li style="font-size: 12px;"><%= message %></li>
+        <li><%= message %></li>
       <% end %>
     </ul>
   </div>

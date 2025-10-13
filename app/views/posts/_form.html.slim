@@ -1,0 +1,15 @@
+
+#form
+  = form_with model: @post do |form|
+    #title
+      = form.label :title
+      = form.text_field :title
+    br
+    #description
+      = form.label :description
+      = form.text_area :description
+    br
+      = form.label :user_id
+      = form.text_field :user_id
+    br
+    = form.submit btn_text

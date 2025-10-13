@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to users_path, notice: "User created successfully"
     else 
-      puts @user.errors.full_messages.inspect 
+      # puts @user.errors.full_messages.inspect 
       render :new, status: :unprocessable_entity      
     end
   end
@@ -44,6 +44,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     if @user.destroy 
+      # render js: "console.log('Hello World!!!');"
       puts "Hello World"
       redirect_to users_path
     end
