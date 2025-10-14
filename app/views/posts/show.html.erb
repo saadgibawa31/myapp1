@@ -1,0 +1,12 @@
+<h1>Post Details</h1>
+
+<p>
+   Id = <%= @post.id%> <br>
+   Title =  <%= @post.title%> <br>
+   Description = <%= @post.description%> 
+</p>
+
+
+<%= button_to "Back", posts_path, method: :get%>
+
+<%= button_to "Edit", edit_post_path, method: :get%>

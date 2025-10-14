@@ -4,18 +4,17 @@ h1 Post Listing
 
 table
     tr
-        td Post Id
-        td Title 
-        td description
-        td User Id
-        td Action
-    = @posts.each do |post|
+        th Post Id
+        th Title 
+        th description
+        th User Id
+        th Action
+    - @posts.each do |post|
         tr
             td= post.id
             td= post.title
             td= post.description
             td= post.user_id
-        tr
             td =button_to "View", post_path(post), method: :get
             td =button_to "Edit", edit_post_path(post) , method: :get
             td =button_to "Delete", post_path(post) , method: :delete

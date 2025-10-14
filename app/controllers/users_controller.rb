@@ -1,4 +1,11 @@
 class UsersController < ApplicationController
+
+  before_action :filter_example, only: [:index]
+
+  def filter_example
+      flash[:notice] = "Welcome To CRUD application"
+  end
+
   def index
     @users = User.all
   end
@@ -13,7 +20,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to users_path, notice: "User created successfully"
     else 
-      # puts @user.errors.full_messages.inspect 
+      puts @user.errors.full_messages.inspect 
       render :new, status: :unprocessable_entity      
     end
   end
@@ -29,7 +36,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
+    if @user.update
       redirect_to users_path
     else
       render :edit, status: :unprocessable_entity

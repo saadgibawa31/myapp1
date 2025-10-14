@@ -1,3 +1,6 @@
 h1 Edit Post
 
-= render "form", btn_text: "Update Post"
+Post Id : 
+=@post.id 
+
+p = render "form", btn_text: "Update Post", disabled_field: true

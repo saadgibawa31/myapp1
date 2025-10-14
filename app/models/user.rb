@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :posts 
   validates( 
     :name, 
     length: {minimum: 3, maximum: 50, message: "Name should be minimum 3 characters"},
