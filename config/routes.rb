@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # get "users/index"
   root "users#index"
   # with "resources" we dont need to write get "users/index", "users/new" etc. just writing resources will map all the actions created in the user controller
-  resources :users, :posts
+  resources :users, :posts, :comments
 
   get "users/Abc"
 

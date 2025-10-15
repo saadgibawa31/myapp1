@@ -1,13 +1,19 @@
 class UsersController < ApplicationController
 
   before_action :filter_example, only: [:index]
+  before_action :find_id, except: [:index, :new]
 
   def filter_example
       flash[:notice] = "Welcome To CRUD application"
   end
 
+  def find_id
+    @user = User.find(params[:id])
+  end
+
   def index
     @users = User.all
+    # pry
   end
 
   def new
@@ -26,17 +32,15 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
   end
 
   def edit
-    @user = User.find(params[:id])
+    
     render :edit
   end
 
   def update
-    @user = User.find(params[:id])
-    if @user.update
+    if @user.update(user_params)
       redirect_to users_path
     else
       render :edit, status: :unprocessable_entity
@@ -45,18 +49,18 @@ class UsersController < ApplicationController
 
 
   def delete
-    @user = User.find(params[:id])
   end
 
   def destroy
-    @user = User.find(params[:id])
-    if @user.destroy 
-      # render js: "console.log('Hello World!!!');"
+    if @user.destroy
       puts "Hello World"
-      redirect_to users_path
+      redirect_to users_path, status: :ok
+      flash[:notice] = "User deleted successfully"
+    else
+      redirect_to users_path, status: :unprocessable_entity
+      flash[:notice] = "Could not delete user"
     end
   end
-
 
 
   private

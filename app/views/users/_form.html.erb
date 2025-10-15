@@ -18,6 +18,7 @@
             <div style="color: red"><%= @user.errors[:name].first %></div>
         <% end %>
     </div>
+    <br>
 
     <div>
         <%= form.label :email%>
@@ -27,6 +28,8 @@
         <%end%>
     </div>
 
+    <br>
+
     <div>
         <%= form.label :username %>
         <%= form.text_field :username%>
@@ -34,6 +37,8 @@
           <div style="color: red"><%= @user.errors[:username].first%> </div>
         <%end%>
     </div>
+
+    <br>
 
     <div>
         <%= form.label :password%>
@@ -43,7 +48,9 @@
          <%end%>
     </div>
 
-    <div>
-        <%= form.submit btn_text%>
+    <div >
+        <%= form.submit btn_text, style: "float: left; margin-left: 30px; margin-top: 30px; background-color: black; color: white; font-size:15px; width: 150px; height:50px; border-radius:10px"%>
     </div>
 <%end%>
+
+<%= button_to "Back to User Listing", users_path, method: :get, style: "float: left; margin-left: 30px; margin-top: 30px; background-color: black; color: white; font-size:15px; width: 150px; height:50px; border-radius:10px"%>

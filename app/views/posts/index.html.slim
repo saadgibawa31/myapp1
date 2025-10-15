@@ -1,20 +1,58 @@
-h1 Post Listing
+h1 style="text-align: center" Post Listing
 
-= button_to "Create new user", new_post_path, method: :get
 
-table
-    tr
-        th Post Id
-        th Title 
-        th description
-        th User Id
-        th Action
-    - @posts.each do |post|
-        tr
-            td= post.id
-            td= post.title
-            td= post.description
-            td= post.user_id
-            td =button_to "View", post_path(post), method: :get
-            td =button_to "Edit", edit_post_path(post) , method: :get
-            td =button_to "Delete", post_path(post) , method: :delete
+- if params[:user_id].present?
+    p style="font-size: 25px" Displaying Posts of user id : #{params[:user_id]}
+
+    = button_to "Show all posts", posts_path, method: :get, style: "float: right; margin-right: 40px; background-color: black; color: white; font-size:15px; width: 150px; height:50px; border-radius:10px"
+
+end
+
+= button_to "Create new post", new_post_path, method: :get, style: "float: right; margin-right: 60px; background-color: black; color: white; font-size:15px; width: 150px; height:50px; border-radius:10px"
+
+
+
+        
+-if params[:user_id].present?
+    table 
+        tr style="border: 1px black solid"
+            th style="border: 1px black solid; padding: 10px" Post Id
+            th style="border: 1px black solid; padding: 10px" Title 
+            th style="border: 1px black solid; padding: 10px" description
+            th style="border: 1px black solid; padding: 10px" User Id
+            th style="border: 1px black solid; padding: 10px" User Name
+            th style="border: 1px black solid; padding: 10px" colspan=4 Action
+            
+            - @posts.each do |post|
+                tr
+                    td style="border: 1px black solid; padding:10px" = post.id
+                    td style="border: 1px black solid; padding:10px" = post.title
+                    td style="border: 1px black solid; padding:10px" = post.description
+                    td style="border: 1px black solid; padding:10px" = post.user_id
+                    td style="border: 1px black solid; padding:10px" = post.user.name
+                    td style="border: 1px black solid; padding:10px" =link_to "View", post_path(post), method: :get , style:"text-decoration:none; color: white; border: 1px solid black;font-size: 15px; padding: 7px; border-radius: 10px; height:15px; background-color:black"
+                    td style="border: 1px black solid; padding:10px" =link_to "Edit", edit_post_path(post) , method: :get, style:"text-decoration:none; color: white; border: 1px solid black;font-size: 15px; padding: 7px; border-radius: 10px; height:15px; background-color:black"
+                    td style="border: 1px black solid; padding:10px" =link_to "Delete", post_path(post) , method: :delete, style:"text-decoration:none; color: white; border: 1px solid black;font-size: 15px; padding: 7px; border-radius: 10px; height:15px; background-color:black"
+                    td style="border: 1px black solid; padding:10px" =link_to "View User Details", user_path(post.user_id) , method: :get, style:"text-decoration:none; color: white; border: 1px solid black;font-size: 15px; padding: 7px; border-radius: 10px; height:15px; background-color:black"
+        
+- else
+    table
+        tr style="border: 1px black solid"
+            th style="border: 1px black solid; padding:10px" Post Id
+            th style="border: 1px black solid; padding:10px" Title 
+            th style="border: 1px black solid; padding:10px" description
+            th style="border: 1px black solid; padding:10px" User ID                
+            th style="border: 1px black solid; padding:10px" colspan=3 Action   
+
+
+            - @posts.each do |post| 
+                tr
+                    td style="border: 1px black solid; padding: 10px" = post.id
+                    td style="border: 1px black solid; padding: 10px" = post.title
+                    td style="border: 1px black solid; padding: 10px" = post.description
+                    td style="border: 1px black solid; padding: 10px" = post.user_id
+                    td style="border: 1px black solid; padding: 10px" =link_to "View", post_path(post), method: :get, style:"text-decoration:none; color: white; border: 1px solid black;font-size: 15px; padding: 7px; border-radius: 10px; height:15px; background-color:black"
+                    td style="border: 1px black solid; padding: 10px" =link_to "Edit", edit_post_path(post) , method: :get, style:"text-decoration:none; color: white; border: 1px solid black;font-size: 15px; padding: 7px; border-radius: 10px; height:15px; background-color:black"
+                    td style="border: 1px black solid; padding: 10px" =link_to "Delete", post_path(post) , method: :delete, style: "text-decoration:none; color: white; border: 1px solid black;font-size: 15px; padding: 7px; border-radius: 10px; height:15px; background-color:black"
+                    
+end

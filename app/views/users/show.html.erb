@@ -7,7 +7,22 @@
    Username = <%= @user.username%> <br>
 </p>
 
+<ul style="list-style:none; justify-content: left; display: flex; padding:0px">
 
-<%= button_to "Back", users_path, method: :get%>
+<li style="margin:10px 10px">
+<%= link_to "Back to User Listing", users_path, method: :get, style:" text-decoration:none; color: white; border: 1px solid black; padding: 10px; border-radius: 10px; height:20px; width: 50px; background-color:black"%>
+</li>
+<br>
 
-<%= button_to "Edit", edit_user_path, method: :get%>
+<li style="margin:10px 10px">
+<%= link_to "View Posts", posts_path(user_id: @user.id), method: :post, style:"text-decoration:none; color: white; border: 1px solid black; padding: 10px; border-radius: 10px; height:20px; width: 50px; background-color:black"%>
+</li>
+
+<br>
+<br>
+
+<li style="margin:10px 10px">
+<%= link_to "Edit User Details", edit_user_path, method: :get, style:"text-decoration:none; color: white; border: 1px solid black; padding: 10px; border-radius: 10px; height:20px; width: 50px; background-color:black" %>
+</li>
+
+</ul>

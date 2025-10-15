@@ -7,6 +7,9 @@
 </p>
 
 
-<%= button_to "Back", posts_path, method: :get%>
+<%= button_to "Back to all post", posts_path, method: :get%>
+
+<%= link_to "View User's Posts", posts_path(user_id: @user.id), method: :post, style:"text-decoration:none; color: white; border: 1px solid black; padding: 10px; border-radius: 10px; height:20px; width: 50px; background-color:black"%>
+
 
 <%= button_to "Edit", edit_post_path, method: :get%>
