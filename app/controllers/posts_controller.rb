@@ -1,11 +1,17 @@
 class PostsController < ApplicationController
+
+  before_action :find_id, only: [:edit, :delete, :show, :update, :destroy]
+
+  def find_id
+    @post = Post.find(params[:id])
+  end
+
   def index
     if params[:user_id].present?
       @posts = Post.where(user_id: params[:user_id])
     else
       @posts = Post.all
     end
-    pry
   end
 
   def new
@@ -22,12 +28,9 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
-    render :edit
   end
 
   def update
-    @post = Post.find(params[:id])
     if @post.update(post_params)
       redirect_to posts_path
     else
@@ -37,15 +40,12 @@ class PostsController < ApplicationController
 
 
   def show
-    @post = Post.find(params[:id])
   end
 
   def delete
-    @post = Post.find(params[:id])
   end
 
   def destroy
-    @post = Post.find(params[:id])
     if @post.destroy
       redirect_to posts_path
     end

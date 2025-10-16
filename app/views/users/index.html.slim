@@ -1,0 +1,40 @@
+- flash.each do |key, message|
+  #flash.alert.alert-"#{key}" style="color: green; border: 1px solid green; padding: 7px; background-color:#f8d7da; border-radius: 4px; margin-bottom: 5px; text-align: center"
+    = message
+  script
+    | setTimeout(() => {
+    |   const message = document.getElementById("flash");
+    |   if (message) message.style.display = "none";
+    | }, 5000);
+
+h1 style="text-align:center" Users Listing
+
+button type="button" style="float:left; margin-left:30px; width: 150px; height:50px; margin-top:0px; background-color: black; border-radius:10px"
+  a href="/users/new" style="text-decoration: none; color:white; font-size:15px" Create New User
+
+table style="border: 1px black solid; width: 90%; border-collapse:collapse; font-size:20px; margin:25px; text-align:center; margin-top:100px"
+  tr
+    th style="border: 1px black solid; padding:15px" Id
+    th style="border: 1px black solid; padding:15px" Name
+    th style="border: 1px black solid; padding:15px" EMail
+    th style="border: 1px black solid; padding:15px" Username
+    th style="border: 1px black solid; padding:15px" colspan="4" Actions
+
+  - @users.each do |user|
+    tr
+      td style="border: 1px black solid; padding: 15px" = user.id
+      td style="border: 1px black solid; padding: 15px" = user.name
+      td style="border: 1px black solid; padding: 15px" = user.email
+      td style="border: 1px black solid; padding: 15px" = user.username
+
+      td style="border: 1px black solid; padding: 15px"
+        = link_to "View", user_path(user), style: "text-decoration:none; color: white; border: 1px solid black;font-size: 15px; padding: 7px; border-radius: 10px; height:15px; background-color:black"
+
+      td style="border: 1px black solid; padding: 15px"
+        = button_to "Edit", edit_user_path(user), method: :get, style: "background-color: black; color: white; border: 1px solid black;font-size:15px; width: 70px; height:34px; border-radius:10px"
+
+      td style="border: 1px black solid; padding: 10px"
+        = button_to "Delete", user_path(user), method: :delete, style: "background-color: black; color: white; border: 1px solid black;font-size:15px; width: 70px; height:34px; border-radius:10px"
+
+      td style="border: 1px black solid; padding: 15px"
+        = link_to "View Posts", posts_path(user_id: user.id), style: "text-decoration:none; color: white; border: 1px solid black;font-size: 15px; padding: 7px; border-radius: 10px; height:15px; background-color:black"

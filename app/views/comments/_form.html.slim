@@ -1,0 +1,7 @@
+-form_with model: @comment do |form|
+    div
+        =form.label :description
+        =form.text_area :description
+    div
+        =form.label :post_id
+        =form.text_field :post_id

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_10_15_134612) do
+ActiveRecord::Schema[7.2].define(version: 2025_10_16_104601) do
   create_table "comments", charset: "utf8mb3", force: :cascade do |t|
     t.string "description"
     t.bigint "post_id", null: false
@@ -22,7 +22,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_10_15_134612) do
   create_table "posts", charset: "utf8mb3", force: :cascade do |t|
     t.string "title"
     t.string "description"
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_posts_on_user_id"

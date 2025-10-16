@@ -1,0 +1,21 @@
+h1 User Details
+
+p
+  | Id = #{@user.id}
+  br
+  | Name = #{@user.name}
+  br
+  | Email = #{@user.email}
+  br
+  | Username = #{@user.username}
+  br
+
+ul style="list-style:none; justify-content: left; display: flex; padding:0px"
+  li style="margin:10px 10px"
+    = link_to "Back to User Listing", users_path, style: "text-decoration:none; color: white; border: 1px solid black; padding: 10px; border-radius: 10px; height:20px; width: 50px; background-color:black"
+
+  li style="margin:10px 10px"
+    = link_to "View Posts", posts_path(user_id: @user.id), style: "text-decoration:none; color: white; border: 1px solid black; padding: 10px; border-radius: 10px; height:20px; width: 50px; background-color:black"
+
+  li style="margin:10px 10px"
+    = link_to "Edit User Details", edit_user_path(@user), style: "text-decoration:none; color: white; border: 1px solid black; padding: 10px; border-radius: 10px; height:20px; width: 50px; background-color:black"

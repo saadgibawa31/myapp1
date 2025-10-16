@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :filter_example, only: [:index]
-  before_action :find_id, except: [:index, :new]
+  before_action :find_id, only: [:delete, :edit, :show, :update, :destroy]
 
   def filter_example
       flash[:notice] = "Welcome To CRUD application"
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    # pry
+    
   end
 
   def new
@@ -22,11 +22,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
     if @user.save
-      redirect_to users_path, notice: "User created successfully"
+      puts "user saved"
+      redirect_to users_path
     else 
-      puts @user.errors.full_messages.inspect 
+      puts "failed creating user"
+      # puts @user.errors.full_messages.inspect 
       render :new, status: :unprocessable_entity      
     end
   end
@@ -35,8 +36,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    
-    render :edit
+
   end
 
   def update

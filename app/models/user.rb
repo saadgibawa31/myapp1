@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :posts 
+  has_many :posts
   validates( 
     :name, 
     length: {minimum: 3, maximum: 50, message: "Name should be minimum 3 characters"},
@@ -7,7 +7,7 @@ class User < ApplicationRecord
   )
   validates( 
     :username, 
-    length: {minimum: 6, maximum: 25, message: "Username should contain minimum 6 characters"}, 
+    length: {minimum: 3, maximum: 25, message: "Username should contain minimum 6 characters"}, 
     format: {with: /[A-Za-z0-9_]/, message: "Username can only contain alphanumeric characters and _"}, 
     uniqueness: true
   )

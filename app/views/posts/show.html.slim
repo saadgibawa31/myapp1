@@ -1,0 +1,14 @@
+h1 style="text-align: center" Post Details
+
+p style="font-size:20px"
+  | Id: #{@post.id}
+  br
+  | Title: #{@post.title}
+  br
+  | Description: #{@post.description}
+
+= link_to "Back to all post", posts_path, method: :get, style: "text-decoration:none; margin:15px; color: white; border: 1px solid black; padding: 10px; border-radius: 10px; height:20px; width: 50px; background-color:black"
+
+= link_to "View User's Posts", posts_path(user_id: @post.user_id), method: :post, style:"text-decoration:none; margin:15px; color: white; border: 1px solid black; padding: 10px; border-radius: 10px; height:20px; width: 50px; background-color:black"
+
+= link_to "Edit", edit_post_path(@post), method: :get, style: "text-decoration:none; color: white; margin:15px; border: 1px solid black; padding: 10px; border-radius: 10px; height:20px; width: 50px; background-color:black"

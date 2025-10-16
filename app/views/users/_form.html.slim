@@ -1,0 +1,45 @@
+- if @user.errors.any?
+  #errors
+    h2
+      = pluralize(@user.errors.count, "error")
+      |  prohibited this user from being saved:
+    ul
+      - @user.errors.full_messages.each do |message|
+        li = message
+
+= form_with model: @user, local: true do |form|
+  div
+    = form.label :name
+    = form.text_field :name
+    - if @user.errors[:name].any?
+      div style="color: red" = @user.errors[:name].first
+
+  br
+
+  div
+    = form.label :email
+    = form.email_field :email
+    - if @user.errors[:email].any?
+      div style="color: red" = @user.errors[:email].first
+
+  br
+
+  div
+    = form.label :username
+    = form.text_field :username
+    - if @user.errors[:username].any?
+      div style="color: red" = @user.errors[:username].first
+
+  br
+
+  div
+    = form.label :password
+    = form.password_field :password
+    - if @user.errors[:password].any?
+      div style="color: red" = @user.errors[:password].first
+
+  div
+    = form.submit btn_text, style:"background-color: black; margin: 31px;color: white; border: 1px solid black;font-size:15px; width: 110px; height:34px; border-radius:10px"
+
+
+= button_to "Back to User Listing", users_path, method: :get, style: "float: left; margin-left: 30px; border:1px solid black; background-color: black; color: white; font-size:15px; width: 150px; height:38px; border-radius:10px"

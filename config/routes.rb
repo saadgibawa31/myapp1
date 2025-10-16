@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # with "resources" we dont need to write get "users/index", "users/new" etc. just writing resources will map all the actions created in the user controller
   resources :users, :posts, :comments
 
-  get "users/Abc"
+  # get "users/Abc"
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
