@@ -1,29 +1,49 @@
+- flash.each do |key, message|
+  #flash style="color: green; border: 1px solid green; padding: 7px; background-color:#f8d7da; border-radius: 4px; margin-bottom: 5px; text-align: center"
+    = message
+  script
+    | setTimeout(() => {
+    |   const message = document.getElementById("flash");
+    |   if (message) message.style.display = "none";
+    | }, 5000);
+
+
 h1 style="text-align: center" Comments listing
 
+= button_to "Add Comments", new_comment_path, method: :get
+
 -if params[:post_id].present?
-    table style="border:1px solid black; border-collapse: collapse; width: 90%; margin: 70px "
+    table
         tr
-            th style="border:1px solid black; padding: 10px" Comment Id
-            th style="border:1px solid black; padding: 10px" Description
-            th style="border:1px solid black; padding: 10px" Post Id
+            th Comment Id
+            th Description
+            th Post Id
+            th Actions
 
         -@comments.each do |comment|
             tr
-                td style="border: 1px solid black; padding: 10px" =@comment.id
-                td style="border: 1px solid black; padding: 10px" =@comment.description
-                td style="border: 1px solid black; padding: 10px" =@comment.post_id
+                td = comment.id
+                td = comment.description
+                td = comment.post_id
+                td = button_to "View", comment_path(comment), method: :get
+                td = button_to "Edit", edit_comment_path(comment), method: :get
+                td = button_to "Delete", comment_path(comment), method: :delete
 
 - else
-    table style="border:1px solid black; border-collapse: collapse; width: 90%; margin: 70px "
+    table
         tr
-            th style="border:1px solid black; padding: 10px" Comment Id
-            th style="border:1px solid black; padding: 10px" Description
-            th style="border:1px solid black; padding: 10px" Post Id
+            th Comment Id
+            th Description
+            th Post Id
+            th Actions
 
         -@comments.each do |comment|
             tr
-                td style="border: 1px solid black; padding: 10px" =@comment.id
-                td style="border: 1px solid black; padding: 10px" =@comment.description
-                td style="border: 1px solid black; padding: 10px" =@comment.post_id
+                td = comment.id
+                td = comment.description
+                td = comment.post_id
+                td = button_to "View", comment_path(comment), method: :get
+                td = button_to "Edit", edit_comment_path(comment), method: :get
+                td = button_to "Delete", comment_path(comment), method: :delete
 end
                     

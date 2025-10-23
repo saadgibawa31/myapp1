@@ -21,3 +21,15 @@
     font-size: 5px;
 }
 
+table{
+    margin-left: 75px;
+    border:1px solid black; 
+    border-collapse: collapse; 
+    width: 90%; 
+  
+}
+
+th, td{
+    border:1px solid black;
+    padding: 10px;
+}

@@ -1,7 +1,10 @@
--form_with model: @comment do |form|
+= form_with model: @comment, local: true do |form|
     div
-        =form.label :description
-        =form.text_area :description
+        = form.label :description
+        = form.text_area :description
+    br
     div
-        =form.label :post_id
-        =form.text_field :post_id
+        = form.label :post_id
+        = form.text_field :post_id, disabled: disabled_field
+    br
+        = form.submit btn_text

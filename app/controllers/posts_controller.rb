@@ -12,6 +12,18 @@ class PostsController < ApplicationController
     else
       @posts = Post.all
     end
+
+    # pagination custom implementation
+
+    # page = [params[:page].to_i, 1].max
+    # @per_page = 2
+    # @total_posts = Post.count
+    # offset = (page - 1) * @per_page
+    # @posts = Post.limit(@per_page).offset(offset) 
+
+    #pagination implementation using gem
+
+    @posts = Post.paginate(page: params[:page], per_page: 5)
   end
 
   def new

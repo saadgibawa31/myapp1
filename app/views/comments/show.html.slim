@@ -1,0 +1,18 @@
+h1 style="text-align: center" Post Details
+
+p style="font-size:20px"
+  | Id: #{@comment.id}
+  br
+  br
+  | Description: #{@comment.description}
+  br
+  br
+  | Post Id: #{@comment.post_id}
+  br
+  br
+
+= link_to "Back to all comments", comments_path, method: :get, style: "text-decoration:none; margin:15px; color: white; border: 1px solid black; padding: 10px; border-radius: 10px; height:20px; width: 50px; background-color:black"
+
+= link_to "View Posts", post_path(@comment.post_id), method: :get, style:"text-decoration:none; margin:15px; color: white; border: 1px solid black; padding: 10px; border-radius: 10px; height:20px; width: 50px; background-color:black"
+
+= link_to "Edit", edit_comment_path(@comment), method: :get, style: "text-decoration:none; color: white; margin:15px; border: 1px solid black; padding: 10px; border-radius: 10px; height:20px; width: 50px; background-color:black"

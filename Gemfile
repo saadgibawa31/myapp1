@@ -18,6 +18,11 @@ gem "stimulus-rails"
 gem "jbuilder"
 gem "mysql2"
 gem "slim-rails"
+
+gem 'will_paginate', '~> 4.0'
+gem "letter_opener", group: :development
+gem "launchy"
+gem 'sidekiq'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 

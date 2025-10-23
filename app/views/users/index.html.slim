@@ -1,5 +1,5 @@
 - flash.each do |key, message|
-  #flash.alert.alert-"#{key}" style="color: green; border: 1px solid green; padding: 7px; background-color:#f8d7da; border-radius: 4px; margin-bottom: 5px; text-align: center"
+  #flash style="color: green; border: 1px solid green; padding: 7px; background-color:#f8d7da; border-radius: 4px; margin-bottom: 5px; text-align: center"
     = message
   script
     | setTimeout(() => {
@@ -38,3 +38,6 @@ table style="border: 1px black solid; width: 90%; border-collapse:collapse; font
 
       td style="border: 1px black solid; padding: 15px"
         = link_to "View Posts", posts_path(user_id: user.id), style: "text-decoration:none; color: white; border: 1px solid black;font-size: 15px; padding: 7px; border-radius: 10px; height:15px; background-color:black"
+
+
+= will_paginate @users
