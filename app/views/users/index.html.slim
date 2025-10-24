@@ -37,7 +37,7 @@ table style="border: 1px black solid; width: 90%; border-collapse:collapse; font
         = button_to "Delete", user_path(user), method: :delete, style: "background-color: black; color: white; border: 1px solid black;font-size:15px; width: 70px; height:34px; border-radius:10px"
 
       td style="border: 1px black solid; padding: 15px"
-        = link_to "View Posts", posts_path(user_id: user.id), style: "text-decoration:none; color: white; border: 1px solid black;font-size: 15px; padding: 7px; border-radius: 10px; height:15px; background-color:black"
+        = link_to "View Posts", posts_path(user_id: user.id), method: :get, style: "text-decoration:none; color: white; border: 1px solid black;font-size: 15px; padding: 7px; border-radius: 10px; height:15px; background-color:black"
 
 
 = will_paginate @users

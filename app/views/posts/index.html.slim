@@ -14,55 +14,52 @@ end
 
         
 - if params[:user_id].present?
-    table style="margin-left: 75px"
-        tr style="border: 1px black solid"
-            th style="border: 1px black solid; padding: 10px" Post Id
-            th style="border: 1px black solid; padding: 10px" Title 
-            th style="border: 1px black solid; padding: 10px" description
-            th style="border: 1px black solid; padding: 10px" User Id
-            th style="border: 1px black solid; padding: 10px" User Name
-            th style="border: 1px black solid; padding: 10px" colspan=4 Action
+    table
+        tr
+            th Post Id
+            th Title 
+            th description
+            th User Id
+            th User Name
+            th colspan=4 Action
             
             - @posts.each do |post|
                 tr
-                    td style = "border: 1px black solid; padding:10px" = post.id
-                    td style = "border: 1px black solid; padding:10px" = post.title
-                    td style = "border: 1px black solid; padding:10px" = post.description
-                    td style = "border: 1px black solid; padding:10px" = post.user_id
-                    td style = "border: 1px black solid; padding:10px" = post.user.name
-                    td style = "border: 1px black solid; padding:10px" = link_to "View", post_path(post), method: :get , style:"text-decoration:none; color: white; border: 1px solid black;font-size: 15px; padding: 7px; border-radius: 10px; height:15px; background-color:black"
-                    td style = "border: 1px black solid; padding:10px" = link_to "Edit", edit_post_path(post) , method: :get, style:"text-decoration:none; color: white; border: 1px solid black;font-size: 15px; padding: 7px; border-radius: 10px; height:15px; background-color:black"
-                    td style = "border: 1px black solid; padding:10px" = button_to "Delete", post_path(post), method: :delete, style:"background-color: black; color: white; border: 1px solid black;font-size:15px; width: 70px; height:34px; border-radius:10px"
-                    td style = "border: 1px black solid; padding:10px" = link_to "View User Details", user_path(post.user_id) , method: :get, style:"text-decoration:none; color: white; border: 1px solid black;font-size: 15px; padding: 7px; border-radius: 10px; height:15px; background-color:black"
-                    td style = "border: 1px black solid; padding:10px" = link_to "View Comments", comment_path(post.id), method: :get, style:"text-decoration:none; color: white; border: 1px solid black;font-size: 15px; padding: 7px; border-radius: 10px; height:15px; background-color:black"
+                    td = post.id
+                    td = post.title
+                    td = post.description
+                    td = post.user_id
+                    td = post.user.name
+                    td = link_to "View", post_path(post), method: :get , style:"text-decoration:none; color: white; border: 1px solid black;font-size: 15px; padding: 7px; border-radius: 10px; height:15px; background-color:black"
+                    td = link_to "Edit", edit_post_path(post) , method: :get, style:"text-decoration:none; color: white; border: 1px solid black;font-size: 15px; padding: 7px; border-radius: 10px; height:15px; background-color:black"
+                    td = button_to "Delete", post_path(post), method: :delete, style:"background-color: black; color: white; border: 1px solid black;font-size:15px; width: 70px; height:34px; border-radius:10px"
+                    td = link_to "View User Details", user_path(post.user_id) , method: :get, style:"text-decoration:none; color: white; border: 1px solid black;font-size: 15px; padding: 7px; border-radius: 10px; height:15px; background-color:black"
+                    td = link_to "View Comments", comment_path(post.id), method: :get, style:"text-decoration:none; color: white; border: 1px solid black;font-size: 15px; padding: 7px; border-radius: 10px; height:15px; background-color:black"
+      
 
-        
-- else
-    table style="margin-left: 75px"
-        tr style="border: 1px black solid"
-            th style = "border: 1px black solid; padding:10px" 
+
+-else
+    table
+        tr
+            th
               | Post Id
-            th style = "border: 1px black solid; padding:10px" Title 
-            th style = "border: 1px black solid; padding:10px" description
-            th style = "border: 1px black solid; padding:10px" User ID                
-            th style = "border: 1px black solid; padding:10px" colspan=4 Action   
+            th Title 
+            th description
+            th User ID                
+            th colspan=4 Action   
 
 
             - @posts.each do |post| 
                 tr
-                    td style="border: 1px black solid; padding: 10px" = post.id
-                    td style="border: 1px black solid; padding: 10px" = post.title
-                    td style="border: 1px black solid; padding: 10px" = post.description
-                    td style="border: 1px black solid; padding: 10px" = post.user_id
-                    td style="border: 1px black solid; padding: 10px" = link_to "View", post_path(post), method: :get, style:"text-decoration:none; color: white; border: 1px solid black;font-size: 15px; padding: 7px; border-radius: 10px; height:15px; background-color:black"
-                    td style="border: 1px black solid; padding: 10px" = link_to "Edit", edit_post_path(post) , method: :get, style:"text-decoration:none; color: white; border: 1px solid black;font-size: 15px; padding: 7px; border-radius: 10px; height:15px; background-color:black"
-                    td style="border: 1px black solid; padding: 10px" = button_to "Delete", post_path(post), method: :delete, style: "background-color: black; color: white; border: 1px solid black;font-size:15px; width: 70px; height:34px; border-radius:10px"
-                    td style = "border: 1px black solid; padding:10px" = link_to "View Comments", comments_path(post_id: post.id), method: :get, style:"text-decoration:none; color: white; border: 1px solid black;font-size: 15px; padding: 7px; border-radius: 10px; height:15px; background-color:black"
-                    -if post.user.present?
-                        td style="border: 1px black solid; padding: 10px" = link_to "View User Details", user_path(post.user_id) , method: :get, style:"text-decoration:none; color: white; border: 1px solid black;font-size: 15px; padding: 7px; border-radius: 10px; height:15px; background-color:black"
-                    -else
-                        td style="border: 1px black solid; padding: 10px" No User
-                    end
+                    td = post.id
+                    td = post.title
+                    td = post.description
+                    td = post.user_id
+                    td = link_to "View", post_path(post), method: :get, style:"text-decoration:none; color: white; border: 1px solid black;font-size: 15px; padding: 7px; border-radius: 10px; height:15px; background-color:black"
+                    td = link_to "Edit", edit_post_path(post) , method: :get, style:"text-decoration:none; color: white; border: 1px solid black;font-size: 15px; padding: 7px; border-radius: 10px; height:15px; background-color:black"
+                    td = button_to "Delete", post_path(post), method: :delete, style: "background-color: black; color: white; border: 1px solid black;font-size:15px; width: 70px; height:34px; border-radius:10px"
+                    td = link_to "View Comments", comments_path(post_id: post.id), method: :get, style:"text-decoration:none; color: white; border: 1px solid black;font-size: 15px; padding: 7px; border-radius: 10px; height:15px; background-color:black"
+                    
 
 end
 

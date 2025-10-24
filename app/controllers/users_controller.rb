@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
 
-    @users = User.paginate(page: params[:page], per_page: 2)
+    @users = User.paginate(page: params[:page], per_page: 5)
     
   end
 
@@ -25,8 +25,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      UserMailer.welcome_mail(@user).deliver
       redirect_to users_path
+      flash[:notice] = "User created successfully"
     else 
       puts "failed creating user"
       # puts @user.errors.full_messages.inspect 

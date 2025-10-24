@@ -7,10 +7,9 @@ class PostsController < ApplicationController
   end
 
   def index
+    @posts = Post.all
     if params[:user_id].present?
       @posts = Post.where(user_id: params[:user_id])
-    else
-      @posts = Post.all
     end
 
     # pagination custom implementation
@@ -23,7 +22,7 @@ class PostsController < ApplicationController
 
     #pagination implementation using gem
 
-    @posts = Post.paginate(page: params[:page], per_page: 5)
+    @posts = @posts.paginate(page: params[:page], per_page: 3)
   end
 
   def new
@@ -52,6 +51,8 @@ class PostsController < ApplicationController
 
 
   def show
+    @comments = Comment.where(post_id: @post)
+    
   end
 
   def delete

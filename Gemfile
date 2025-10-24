@@ -22,7 +22,7 @@ gem "slim-rails"
 gem 'will_paginate', '~> 4.0'
 gem "letter_opener", group: :development
 gem "launchy"
-gem 'sidekiq'
+gem 'sidekiq', '~> 8.0.8'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
