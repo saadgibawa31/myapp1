@@ -1,3 +1,9 @@
+
+- flash.each do |key, message|
+    = message
+
+
+
 h1 style="text-align: center"
   | Post Listing
 
@@ -81,3 +87,4 @@ end
 = will_paginate @posts
 
 = javascript_include_tag "posts/index"
+= javascript_include_tag "flash"

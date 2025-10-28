@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
   # get "users/index"
-  root "users#index"
+  root "home#index"
+
+  get 'sign_up', to: 'users#new', as: :sign_up
+  post 'sign_up', to: 'users#create'
+  get 'login' , to: 'sessions#new', as: :login
+  post 'login' , to: 'sessions#create' 
+  delete 'logout', to: 'sessions#destroy', as: :logout
   # with "resources" we dont need to write get "users/index", "users/new" etc. just writing resources will map all the actions created in the user controller
-  resources :users, :posts, :comments
+  resources :posts, :comments
 
   # get "users/Abc"
 

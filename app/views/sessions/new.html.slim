@@ -1,0 +1,20 @@
+- flash.each do |message|
+  = message
+
+h1 Log In
+
+= form_with(url: login_path) do |form|
+  = form.label :email
+  = form.text_field :email
+
+  br
+  br
+  
+  = form.label :password
+  = form.password_field :password
+
+  br
+  br
+
+  = form.submit "Login"
+

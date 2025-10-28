@@ -23,3 +23,18 @@ Things you may want to cover:
 
 * ...
 # myapp1
+
+rabbit mq
+docker
+jwt * (claims- 7types, multisignature jwt)
+rsa
+yml config
+erb templates(rendering)
+grape
+file operations
+csv report
+rake tasks
+carrier wave
+channel
+linux [symbolic links]
+envoy

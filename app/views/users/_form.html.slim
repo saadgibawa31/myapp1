@@ -7,7 +7,7 @@
       - @user.errors.full_messages.each do |message|
         li = message
 
-= form_with model: @user, local: true do |form|
+= form_with model: @user, url: sign_up_path do |form|
   div
     = form.label :name
     = form.text_field :name
@@ -37,9 +37,15 @@
     = form.password_field :password
     - if @user.errors[:password].any?
       div style="color: red" = @user.errors[:password].first
+  
+  div
+    = form.label :password_confirmation
+    = form.password_field :password_confirmation
+    - if @user.errors[:password].any?
+      div style="color: red" = @user.errors[:password_confirmation].first
 
   div
     = form.submit btn_text, style:"background-color: black; margin: 31px;color: white; border: 1px solid black;font-size:15px; width: 110px; height:34px; border-radius:10px"
 
 
-= button_to "Back to User Listing", users_path, method: :get, style: "float: left; margin-left: 30px; border:1px solid black; background-color: black; color: white; font-size:15px; width: 150px; height:38px; border-radius:10px"
+/ = button_to "Back to User Listing", users_path, method: :get, style: "float: left; margin-left: 30px; border:1px solid black; background-color: black; color: white; font-size:15px; width: 150px; height:38px; border-radius:10px"

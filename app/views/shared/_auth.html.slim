@@ -1,0 +1,13 @@
+h1
+  | Crud App with Authentication
+
+- if !user_signed_in
+    = link_to "Sign up" , sign_up_path
+    br
+    = link_to "Sign in", login_path
+  else 
+  
+- else 
+    = link_to "Logout", logout_path
+    h3
+      |Welcome! #{current_user.email}

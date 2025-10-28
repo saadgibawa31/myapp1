@@ -1,22 +1,22 @@
 class UsersController < ApplicationController
 
-  before_action :filter_example, only: [:index]
-  before_action :find_id, only: [:delete, :edit, :show, :update, :destroy]
+  # before_action :filter_example, only: [:index]
+  # before_action :find_id, only: [:delete, :edit, :show, :update, :destroy]
 
-  def filter_example
-      flash[:notice] = "Welcome To CRUD application"
-  end
+  # def filter_example
+  #     flash[:notice] = "Welcome To CRUD application"
+  # end
 
-  def find_id
-    @user = User.find(params[:id])
-  end
+  # def find_id
+  #   @user = User.find(params[:id])
+  # end
 
-  def index
-    @users = User.all
+  # def index
+  #   @users = User.all
 
-    @users = User.paginate(page: params[:page], per_page: 5)
+  #   @users = User.paginate(page: params[:page], per_page: 5)
     
-  end
+  # end
 
   def new
     @user = User.new
@@ -25,7 +25,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to users_path
+      # redirect_to users_path
+      redirect_to root_path
       flash[:notice] = "User created successfully"
     else 
       puts "failed creating user"
@@ -34,40 +35,40 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-  end
+  # def show
+  # end
 
-  def edit
+  # def edit
 
-  end
+  # end
 
-  def update
-    if @user.update(user_params)
-      redirect_to users_path
-    else
-      render :edit, status: :unprocessable_entity
-    end
-  end
+  # def update
+  #   if @user.update(user_params)
+  #     redirect_to users_path
+  #   else
+  #     render :edit, status: :unprocessable_entity
+  #   end
+  # end
 
 
-  def delete
-  end
+  # def delete
+  # end
 
-  def destroy
-    if @user.destroy
-      puts "Hello World"
-      redirect_to users_path, status: :ok
-      flash[:notice] = "User deleted successfully"
-    else
-      redirect_to users_path, status: :unprocessable_entity
-      flash[:notice] = "Could not delete user"
-    end
-  end
+  # def destroy
+  #   if @user.destroy
+  #     puts "Hello World"
+  #     redirect_to users_path, status: :ok
+  #     flash[:notice] = "User deleted successfully"
+  #   else
+  #     redirect_to users_path, status: :unprocessable_entity
+  #     flash[:notice] = "Could not delete user"
+  #   end
+  # end
 
 
   private
 
   def user_params
-    params.require(:user).permit(:name,:email,:username, :password)
+    params.require(:user).permit(:name,:email,:username, :password, :password_confirmation)
   end
 end

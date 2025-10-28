@@ -1,11 +1,6 @@
-- flash.each do |key, message|
-  #flash style="color: green; border: 1px solid green; padding: 7px; background-color:#f8d7da; border-radius: 4px; margin-bottom: 5px; text-align: center"
+#flash
+  - flash.each do |key, message|
     = message
-  script
-    | setTimeout(() => {
-    |   const message = document.getElementById("flash");
-    |   if (message) message.style.display = "none";
-    | }, 5000);
 
 h1 style="text-align:center" Users Listing
 
@@ -41,3 +36,5 @@ table style="border: 1px black solid; width: 90%; border-collapse:collapse; font
 
 
 = will_paginate @users
+
+= javascript_include_tag "flash"
