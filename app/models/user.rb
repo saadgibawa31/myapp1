@@ -1,9 +1,9 @@
 class User < ApplicationRecord
   has_many :posts
-  after_commit :SendMail, on: :create
+  after_commit :send_mail, on: :create
   has_secure_password
 
-  def SendMail
+  def send_mail
     SendUserCreationEmailJob.perform_async(id)
   end
   
