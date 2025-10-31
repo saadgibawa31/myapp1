@@ -10,6 +10,11 @@ module Myapp1
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.2
+        
+    # config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
+    # config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]
+
+   config.autoload_paths << Rails.root.join('app/api')
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.

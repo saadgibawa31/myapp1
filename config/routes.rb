@@ -2,11 +2,13 @@ Rails.application.routes.draw do
   # get "users/index"
   root "home#index"
 
-  namespace :api do
-    namespace :v1 do
-      resources :users
-    end
-  end
+  mount V1::Base => '/'
+
+  # namespace :api do
+  #   namespace :v1 do
+  #     resources :users
+  #   end
+  # end
 
 
   get 'sign_up', to: 'users#new', as: :sign_up
