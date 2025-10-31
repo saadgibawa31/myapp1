@@ -25,7 +25,7 @@ gem "launchy"
 gem 'sidekiq', '~> 8.0.8'
 gem 'pry'
 
-gem 'jwt', '~> 1.5', '>= 1.5.4'
+gem 'jwt', '~> 3.1'
 gem 'openssl', '~> 3.3', '>= 3.3.2'
 
 gem 'grape', '~> 2.4'
