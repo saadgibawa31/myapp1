@@ -28,7 +28,7 @@ gem 'pry'
 gem 'jwt', '~> 1.5', '>= 1.5.4'
 gem 'openssl', '~> 3.3', '>= 3.3.2'
 
-gem 'grape', '~> 2.4'
+gem 'grape', '~> 3.0'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
